@@ -40,8 +40,7 @@ public class ShiroSessionManager extends DefaultWebSessionManager {
         } else {
             // 这里禁用掉Cookie获取方式
             // 按默认规则从Cookie取Token
-            // return super.getSessionId(request, response);
-            return null;
+            return super.getSessionId(request, response);
         }
     }
 }

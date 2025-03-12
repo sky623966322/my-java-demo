@@ -43,12 +43,12 @@ public class ShiroRealm extends AuthorizingRealm {
         //获取用户ID
         SimpleAuthorizationInfo authorizationInfo = new SimpleAuthorizationInfo();
         SysUserEntity sysUserEntity = (SysUserEntity) principalCollection.getPrimaryPrincipal();
-        Long userId =sysUserEntity.getUserId();
+        String userId =sysUserEntity.getUserId();
         //这里可以进行授权和处理
         Set<String> rolesSet = new HashSet<>();
         Set<String> permsSet = new HashSet<>();
         //查询角色和权限(这里根据业务自行查询)
-        List<SysRoleEntity> sysRoleEntityList = sysRoleService.selectSysRoleByUserId(userId);
+        List<SysRoleEntity> sysRoleEntityList = sysRoleService.selectSysRoleByUserId(Long.parseLong(userId));
         for (SysRoleEntity sysRoleEntity:sysRoleEntityList) {
             rolesSet.add(sysRoleEntity.getRoleName());
             List<SysMenuEntity> sysMenuEntityList = sysMenuService.selectSysMenuByRoleId(sysRoleEntity.getRoleId());

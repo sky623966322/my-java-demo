@@ -19,7 +19,7 @@ public class SysUserEntity implements Serializable {
 	 * 用户ID
 	 */
 	@TableId
-	private Long userId;
+	private String userId;
 	/**
 	 * 用户名
 	 */

@@ -106,7 +106,7 @@ public class UserLoginController {
         sysUserService.save(sysUser);
         // 保存角色
         SysUserRoleEntity sysUserRoleEntity = new SysUserRoleEntity();
-        sysUserRoleEntity.setUserId(sysUser.getUserId()); // 保存用户完之后会把ID返回给用户实体
+        sysUserRoleEntity.setUserId(Long.parseLong(sysUser.getUserId())); // 保存用户完之后会把ID返回给用户实体
         sysUserRoleService.save(sysUserRoleEntity);
         // 返回结果
         Map<String,Object> map = new HashMap<>();
